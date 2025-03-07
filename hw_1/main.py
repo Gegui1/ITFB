@@ -1,20 +1,44 @@
-def power_numbers(*args):
+"""
+Домашнее задание №1
+Функции и структуры данных
+"""
+
+
+def power_numbers(*args:int):
+    """
+    функция, которая принимает N целых чисел,
+    и возвращает список квадратов этих чисел
+    >>> power_numbers(1, 2, 5, 7)
+    <<< [1, 4, 25, 49]
+    """
     return [x**2 for x in args]
+
 
 # filter types
 ODD = "odd"
 EVEN = "even"
 PRIME = "prime"
 
-def is_prime(n):
-    if n < 2:
+
+def is_prime(numbers:int):
+    """
+    функция, которая проверяет, является ли число простым
+    и возвращает True, если число простое, иначе False
+    """
+    if numbers < 2:
         return False
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
+    for i in range(2, int(numbers ** 0.5) + 1):
+        if numbers % i == 0:
             return False
     return True
 
-def filter_numbers(numbers, filter_type):
+
+def filter_numbers(numbers: list[int], filter_type:str):
+    """
+    функция, которая на вход принимает список из целых чисел
+    и возвращает только чётные/нечётные/простые числа
+    (выбор производится передачей дополнительного аргумента).
+    """
     if filter_type == ODD:
         return list(filter(lambda x: x % 2 != 0, numbers))
     elif filter_type == EVEN:
